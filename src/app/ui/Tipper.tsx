@@ -26,7 +26,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Rajesh Kumar</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Rajesh is a skilled waiter at Swaad Restaurant, celebrated for
                 his quick service and friendly demeanor. His attention to detail
                 ensures that every guest feels welcomed and well-cared for.
@@ -48,7 +48,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Priya Sharma</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Priya is a dedicated server at Swaad Restaurant, known for her
                 exceptional customer service and warm smile. She always goes the
                 extra mile to ensure a pleasant dining experience for all
@@ -71,7 +71,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Neha Reddy</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Neha is a valued server at Swaad Restaurant, appreciated for her
                 attentive service and positive attitude. She is committed to
                 making every dining experience memorable with her excellent
@@ -94,7 +94,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Amit Patel</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Amit is an experienced waiter at Swaad Restaurant, renowned for
                 his efficiency and courteous nature. His deep knowledge of the
                 menu helps guests make the best choices for their meals
