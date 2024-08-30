@@ -26,7 +26,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Rajesh Kumar</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Rajesh is a skilled waiter at Swaad Restaurant, celebrated for
                 his quick service and friendly demeanor. His attention to detail
                 ensures that every guest feels welcomed and well-cared for.
@@ -48,7 +48,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Priya Sharma</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Priya is a dedicated server at Swaad Restaurant, known for her
                 exceptional customer service and warm smile. She always goes the
                 extra mile to ensure a pleasant dining experience for all
@@ -71,7 +71,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Neha Reddy</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Neha is a valued server at Swaad Restaurant, appreciated for her
                 attentive service and positive attitude. She is committed to
                 making every dining experience memorable with her excellent
@@ -94,7 +94,7 @@ const Tipper = () => {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Amit Patel</a>
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
+              <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Amit is an experienced waiter at Swaad Restaurant, renowned for
                 his efficiency and courteous nature. His deep knowledge of the
                 menu helps guests make the best choices for their meals
@@ -117,50 +117,3 @@ const Tipper = () => {
 };
 
 export default Tipper;
-
-// <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-//   <div className="flex items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-h-[300px]">
-//     <a href="#" className="h-full min-w-[240px]">
-//       <img
-//         className="object-cover w-full h-full rounded-lg sm:rounded-none sm:rounded-l-lg"
-//         src="https://cdn.gencraft.com/prod/user/e3b1d056-a391-4365-acd5-45c7d2f69279/c1ce15c9-1a9d-4dce-9007-240d189e5a6f/image/image1_0.jpg?Expires=1725121402&Signature=JI5S0V9ZZHrzsaRUGVwHxn7gWNk7-SMEMirEKnK46xLlPXuqxK3z64NNlQ9lca2lEVRVb4DuQxGN0EH5gUzxmI50AjTfXYaMseNLKOqlMVxuKQro0bCqZjC4ArtOdfbkn3gJgpsMB4gZjjb7VHZPwTaWnLs08Ra6fLdBvXjJw-ext2mjmChCjNHexgjOIftA4A5UyuptKQsBFXY6bQIxSqZ1Rsq1NZAwecMzvMu3pJmRS2gI-QQzQ1A-fhgcaGYoIDAtyd5kRrw6UPFcTuEvTIirMI367xQ~ubp1jQggOcMnBqXBuPK0EvZZvzSG8var6vwzytvYdUKqoYgn6Xyclg__&Key-Pair-Id=K3RDDB1TZ8BHT8"
-//         alt="Rajesh Kumar"
-//       />
-//     </a>
-//     <div className="px-5">
-//       <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-//         <a href="#">Rajesh Kumar</a>
-//       </h3>
-//       <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
-//         Rajesh is a skilled waiter at Swaad Restaurant, celebrated for his quick
-//         service and friendly demeanor. His attention to detail ensures that
-//         every guest feels welcomed and well-cared for.
-//       </p>
-//       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-//         Tip Rajesh
-//       </button>
-//     </div>
-//   </div>
-//   <div className="flex items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-h-[300px]">
-//     <a href="#" className="h-full min-w-[240px]">
-//       <img
-//         className="object-cover w-full h-full rounded-lg sm:rounded-none sm:rounded-l-lg"
-//         src="https://cdn.gencraft.com/prod/user/e3b1d056-a391-4365-acd5-45c7d2f69279/6746e3b7-e720-4840-95e1-7a0713608e4d/image/image1_0.jpg?Expires=1725121477&Signature=biuMolLE0CDRrl-U8isU4ejTiwHhjLD-a84lTOjRoaZKyEIhO0D~fp4KWTreuz-6r20ivVCqYXYqmphajboSNWWEQodIzvZ7wlRnEhutmsF90RsY9WqkMpyjztfQ-2ah8p7s0Vc19vTW3ruoyQ53JvjQjrw1zbuFVyO4SGVjdXtWkUQ-Nbz0h0SlIZLlafLbztm6-P4YXcdpdIpstKMIJMvICHzAtOrnZrpaiB6IRhC-MK~ntPjq0hM60U2OHfwHvC2Cgx7hKktHQVMucXOuu5czE5~XDa9ji0UCcp8zNOETns0JneQfkjKXQkoQBOxKE5DOqttkqSNYrdddhUi4eA__&Key-Pair-Id=K3RDDB1TZ8BHT8"
-//         alt="Priya Sharma"
-//       />
-//     </a>
-//     <div className="px-5">
-//       <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-//         <a href="#">Priya Sharma</a>
-//       </h3>
-//       <p className="font-light text-gray-500 dark:text-gray-400 mb-4 min-h-[180px]">
-//         Priya is a dedicated server at Swaad Restaurant, known for her
-//         exceptional customer service and warm smile. She always goes the extra
-//         mile to ensure a pleasant dining experience for all patrons.
-//       </p>
-//       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-//         Tip Priya
-//       </button>
-//     </div>
-//   </div>
-// </div>;
