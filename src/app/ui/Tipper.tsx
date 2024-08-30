@@ -28,8 +28,7 @@ const Tipper = () => {
               </h3>
               <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Rajesh is a skilled waiter at Swaad Restaurant, celebrated for
-                his quick service and friendly demeanor. His attention to detail
-                ensures that every guest feels welcomed and well-cared for.
+                his quick service and friendly demeanor.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Tip Rajesh
@@ -50,9 +49,7 @@ const Tipper = () => {
               </h3>
               <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Priya is a dedicated server at Swaad Restaurant, known for her
-                exceptional customer service and warm smile. She always goes the
-                extra mile to ensure a pleasant dining experience for all
-                patrons.
+                exceptional customer service and warm smile.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Tip Priya
@@ -73,9 +70,7 @@ const Tipper = () => {
               </h3>
               <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Neha is a valued server at Swaad Restaurant, appreciated for her
-                attentive service and positive attitude. She is committed to
-                making every dining experience memorable with her excellent
-                hospitality.
+                attentive service and positive attitude.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Tip Neha
@@ -96,8 +91,7 @@ const Tipper = () => {
               </h3>
               <p className="font-light text-gray-500 dark:text-gray-400 mb-4 lg:min-h-[180px]">
                 Amit is an experienced waiter at Swaad Restaurant, renowned for
-                his efficiency and courteous nature. His deep knowledge of the
-                menu helps guests make the best choices for their meals
+                his efficiency and courteous nature.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Tip Amit
