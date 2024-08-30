@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Tipper = () => {
@@ -52,7 +53,13 @@ const Tipper = () => {
                 exceptional customer service and warm smile.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Tip Priya
+                <Link
+                  href={
+                    "https://dial.to/?action=solana-action%3Ahttp%3A%2F%2Flocalhost%3A3000%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D0%26amount%3D1&cluster=devnet"
+                  }
+                >
+                  Tip Priya
+                </Link>
               </button>
             </div>
           </div>
