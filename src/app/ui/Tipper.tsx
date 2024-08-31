@@ -32,7 +32,13 @@ const Tipper = () => {
                 his quick service and friendly demeanor.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Tip Rajesh
+                <Link
+                  href={
+                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D3%26amount%3D5&cluster=devnet"
+                  }
+                >
+                  Tip Rajesh
+                </Link>
               </button>
             </div>
           </div>
@@ -55,7 +61,7 @@ const Tipper = () => {
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 <Link
                   href={
-                    "https://dial.to/?action=solana-action%3Ahttp%3A%2F%2Flocalhost%3A3000%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D0%26amount%3D1&cluster=devnet"
+                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D0%26amount%3D5&cluster=devnet"
                   }
                 >
                   Tip Priya
@@ -80,7 +86,13 @@ const Tipper = () => {
                 attentive service and positive attitude.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Tip Neha
+                <Link
+                  href={
+                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D1%26amount%3D5&cluster=devnet"
+                  }
+                >
+                  Tip Neha
+                </Link>
               </button>
             </div>
           </div>
@@ -101,7 +113,13 @@ const Tipper = () => {
                 his efficiency and courteous nature.
               </p>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Tip Amit
+                <Link
+                  href={
+                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D2%26amount%3D5&cluster=devnet"
+                  }
+                >
+                  Tip Amit
+                </Link>
               </button>
             </div>
           </div>

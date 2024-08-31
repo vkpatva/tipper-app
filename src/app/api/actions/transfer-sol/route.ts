@@ -36,23 +36,23 @@ export const GET = async (req: Request) => {
 
     const payload: ActionGetResponse = {
       type: "action",
-      title: "Actions Example - Transfer Native SOL",
+      title: "Swaad Restaurant",
       icon: new URL(`/${toPubkey}.jpg`, requestUrl.origin).toString(),
-      description: "Transfer SOL to another Solana wallet",
-      label: "Transfer", // this value will be ignored since `links.actions` exists
+      description: "Show your appreciation by tipping your favorite waiters directly to their crypto wallets.",
+      label: "Transfer",
       links: {
         actions: [
           {
-            label: "Send 1 SOL", // button text
-            href: `${baseHref}&amount=${"1"}`,
+            label: "Send 0.001 SOL",
+            href: `${baseHref}&amount=${"0.001"}`,
           },
           {
-            label: "Send 5 SOL", // button text
-            href: `${baseHref}&amount=${"5"}`,
+            label: "Send 0.005 SOL",
+            href: `${baseHref}&amount=${"0.005"}`,
           },
           {
-            label: "Send 10 SOL", // button text
-            href: `${baseHref}&amount=${"10"}`,
+            label: "Send 0.01 SOL", // button text
+            href: `${baseHref}&amount=${"0.01"}`,
           },
           {
             label: "Send SOL", // button text
