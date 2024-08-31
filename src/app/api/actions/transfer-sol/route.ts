@@ -156,7 +156,7 @@ function validatedQueryParams(requestUrl: URL) {
   try {
     if (requestUrl.searchParams.get("to")) {
       const array = [
-        "DBRrtgx9THaDP94kDo7vDc5q8ei6LTh52vMBdB6YEpgM",
+        "EQhsdAx9LYe1HLJgsF9i3GeTYnX7AXzA4nNpFFBcRaJt",
         "HA4y2LT19RJhQJfM8wRMNbiUzDC7iFtYf4M43ZjvqZYD",
         "2jCZccY7k2ZTBh8nb36rx7vviz4a68pwYJfFJzCTMqs5",
         "CaZ6ZjKWqCN2UasNrrbTonogwEGvttrBWqKwgKWXgnqG"
