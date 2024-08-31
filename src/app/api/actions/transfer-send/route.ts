@@ -8,13 +8,11 @@ import {
 import {
   clusterApiUrl,
   Connection,
-  LAMPORTS_PER_SOL,
   PublicKey,
-  SystemProgram,
   Transaction,
 } from "@solana/web3.js";
-import { DEFAULT_SOL_ADDRESS, DEFAULT_SOL_AMOUNT } from "./const";
-
+import { DEFAULT_SOL_ADDRESS, DEFAULT_SPL_AMOUNT, SOLANA_MAINNET_SEND_PUBKEY } from "./const";
+import * as splToken from "@solana/spl-token";
 const headers = createActionHeaders();
 
 export const GET = async (req: Request) => {
@@ -23,7 +21,7 @@ export const GET = async (req: Request) => {
     const { index, toPubkey } = validatedQueryParams(requestUrl);
 
     const baseHref = new URL(
-      `/api/actions/transfer-sol?to=${index}`,
+      `/api/actions/transfer-send?to=${index}`,
       requestUrl.origin,
     ).toString();
 
@@ -38,24 +36,24 @@ export const GET = async (req: Request) => {
       links: {
         actions: [
           {
-            label: "Send 0.001 SOL",
-            href: `${baseHref}&amount=${"0.001"}`,
+            label: "1 $SEND",
+            href: `${baseHref}&amount=${"1"}`,
           },
           {
-            label: "Send 0.002 SOL",
-            href: `${baseHref}&amount=${"0.002"}`,
+            label: "2 $SEND",
+            href: `${baseHref}&amount=${"2"}`,
           },
           {
-            label: "Send 0.005 SOL",
-            href: `${baseHref}&amount=${"0.005"}`,
+            label: "5 $SEND",
+            href: `${baseHref}&amount=${"5"}`,
           },
           {
-            label: "Send SOL",
+            label: "$SEND",
             href: `${baseHref}&amount={amount}`,
             parameters: [
               {
                 name: "amount",
-                label: "Enter the amount of SOL to send",
+                label: "Enter the amount of $SEND to send",
                 required: true,
               },
             ],
@@ -89,7 +87,7 @@ export const POST = async (req: Request) => {
     const { amount, toPubkey } = validatedQueryParams(requestUrl);
 
     const body: ActionPostRequest = await req.json();
-
+    console.log(amount, toPubkey)
 
     let account: PublicKey;
     try {
@@ -102,36 +100,78 @@ export const POST = async (req: Request) => {
     }
 
     const connection = new Connection(
-      clusterApiUrl("devnet"),
+      process.env.SOLANA_RPC! || clusterApiUrl("devnet"),
     );
 
-    const minimumBalance = await connection.getMinimumBalanceForRentExemption(
-      0,
+
+    const decimals = 6;
+    const mintAddress = new PublicKey(SOLANA_MAINNET_SEND_PUBKEY);
+    let transferAmount: any = parseFloat(amount.toString());
+    transferAmount = transferAmount.toFixed(decimals);
+    transferAmount = transferAmount * Math.pow(10, decimals);
+
+    const fromTokenAccount = await splToken.getAssociatedTokenAddress(
+      mintAddress,
+      account,
+      false,
+      splToken.TOKEN_PROGRAM_ID,
+      splToken.ASSOCIATED_TOKEN_PROGRAM_ID,
     );
-    if (amount * LAMPORTS_PER_SOL < minimumBalance) {
-      throw `account may not be rent exempt: ${toPubkey.toBase58()}`;
+
+    let toTokenAccount = await splToken.getAssociatedTokenAddress(
+      mintAddress,
+      toPubkey,
+      true,
+      splToken.TOKEN_PROGRAM_ID,
+      splToken.ASSOCIATED_TOKEN_PROGRAM_ID,
+    );
+    const ifexists = await connection.getAccountInfo(toTokenAccount);
+
+    let instructions = [];
+
+    if (!ifexists || !ifexists.data) {
+      let createATAiX = splToken.createAssociatedTokenAccountInstruction(
+        account,
+        toTokenAccount,
+        toPubkey,
+        mintAddress,
+        splToken.TOKEN_PROGRAM_ID,
+        splToken.ASSOCIATED_TOKEN_PROGRAM_ID,
+      );
+      instructions.push(createATAiX);
     }
 
-    const transferSolInstruction = SystemProgram.transfer({
-      fromPubkey: account,
-      toPubkey: toPubkey,
-      lamports: amount * LAMPORTS_PER_SOL,
-    });
+    console.log({
+      fromTokenAccount: fromTokenAccount,
+      toTokenAccount: toTokenAccount,
+      account: account,
+      transferAmount: transferAmount
+    })
 
-    const { blockhash, lastValidBlockHeight } =
-      await connection.getLatestBlockhash();
+    let transferInstruction = splToken.createTransferInstruction(
+      fromTokenAccount,
+      toTokenAccount,
+      account,
+      transferAmount,
+    );
+    instructions.push(transferInstruction);
 
-    const transaction = new Transaction({
-      feePayer: account,
-      blockhash,
-      lastValidBlockHeight,
-    }).add(transferSolInstruction);
+    const transaction = new Transaction();
+    transaction.feePayer = account;
+
+    transaction.add(...instructions);
+
+    transaction.feePayer = account;
+
+    transaction.recentBlockhash = (
+      await connection.getLatestBlockhash()
+    ).blockhash;
 
 
     const payload: ActionPostResponse = await createPostResponse({
       fields: {
         transaction,
-        message: `Send ${amount} SOL to ${toPubkey.toBase58()}`,
+        message: `Send ${amount} $SEND to ${toPubkey.toBase58()}`,
       },
     });
 
@@ -151,7 +191,7 @@ export const POST = async (req: Request) => {
 
 function validatedQueryParams(requestUrl: URL) {
   let toPubkey: PublicKey = DEFAULT_SOL_ADDRESS;
-  let amount: number = DEFAULT_SOL_AMOUNT;
+  let amount: number = DEFAULT_SPL_AMOUNT;
   const index = parseInt(requestUrl.searchParams.get("to") as string);
   try {
     if (requestUrl.searchParams.get("to")) {

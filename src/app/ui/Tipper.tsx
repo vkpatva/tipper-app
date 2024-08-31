@@ -31,15 +31,26 @@ const Tipper = () => {
                 Rajesh is a skilled waiter at Swaad Restaurant, celebrated for
                 his quick service and friendly demeanor.
               </p>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <Link
-                  href={
-                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D3%26amount%3D5&cluster=devnet"
-                  }
-                >
-                  Tip Rajesh
-                </Link>
-              </button>
+              <div className="flex gap-3">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D3%26amount%3D5&cluster=devnet"
+                    }
+                  >
+                    Tip SOL
+                  </Link>
+                </button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-send%3Fto%3D3%26amount%3D5&cluster=mainnet"
+                    }
+                  >
+                    Tip $SEND
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-h-[300px]">
@@ -58,15 +69,26 @@ const Tipper = () => {
                 Priya is a dedicated server at Swaad Restaurant, known for her
                 exceptional customer service and warm smile.
               </p>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <Link
-                  href={
-                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D0%26amount%3D5&cluster=devnet"
-                  }
-                >
-                  Tip Priya
-                </Link>
-              </button>
+              <div className="flex gap-3">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D0%26amount%3D5&cluster=devnet"
+                    }
+                  >
+                    Tip SOL
+                  </Link>
+                </button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-send%3Fto%3D0%26amount%3D5&cluster=devnet"
+                    }
+                  >
+                    Tip $SEND
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-h-[300px]">
@@ -85,15 +107,26 @@ const Tipper = () => {
                 Neha is a valued server at Swaad Restaurant, appreciated for her
                 attentive service and positive attitude.
               </p>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <Link
-                  href={
-                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D1%26amount%3D5&cluster=devnet"
-                  }
-                >
-                  Tip Neha
-                </Link>
-              </button>
+              <div className="flex gap-3">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D1%26amount%3D5&cluster=devnet"
+                    }
+                  >
+                    Tip SOL
+                  </Link>
+                </button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-send%3Fto%3D1%26amount%3D5&cluster=mainnet"
+                    }
+                  >
+                    Tip $SEND
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-h-[300px]">
@@ -112,15 +145,26 @@ const Tipper = () => {
                 Amit is an experienced waiter at Swaad Restaurant, renowned for
                 his efficiency and courteous nature.
               </p>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <Link
-                  href={
-                    "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D2%26amount%3D5&cluster=devnet"
-                  }
-                >
-                  Tip Amit
-                </Link>
-              </button>
+              <div className="flex gap-3">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-sol%3Fto%3D2%26amount%3D5&cluster=devnet"
+                    }
+                  >
+                    Tip SOL
+                  </Link>
+                </button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link
+                    href={
+                      "https://dial.to/?action=solana-action%3Ahttps%3A%2F%2Ftipper-app.vercel.app%2Fapi%2Factions%2Ftransfer-send%3Fto%3D2%26amount%3D5&cluster=devnet"
+                    }
+                  >
+                    Tip $SEND
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
         </div>
