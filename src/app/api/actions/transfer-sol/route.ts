@@ -1,7 +1,3 @@
-/**
- * Solana Actions Example
- */
-
 import {
   ActionPostResponse,
   createPostResponse,
@@ -19,7 +15,6 @@ import {
 } from "@solana/web3.js";
 import { DEFAULT_SOL_ADDRESS, DEFAULT_SOL_AMOUNT } from "./const";
 
-// create the standard headers for this route (including CORS)
 const headers = createActionHeaders();
 
 export const GET = async (req: Request) => {
@@ -47,20 +42,20 @@ export const GET = async (req: Request) => {
             href: `${baseHref}&amount=${"0.001"}`,
           },
           {
+            label: "Send 0.002 SOL",
+            href: `${baseHref}&amount=${"0.002"}`,
+          },
+          {
             label: "Send 0.005 SOL",
             href: `${baseHref}&amount=${"0.005"}`,
           },
           {
-            label: "Send 0.01 SOL", // button text
-            href: `${baseHref}&amount=${"0.01"}`,
-          },
-          {
-            label: "Send SOL", // button text
-            href: `${baseHref}&amount={amount}`, // this href will have a text input
+            label: "Send SOL",
+            href: `${baseHref}&amount={amount}`,
             parameters: [
               {
-                name: "amount", // parameter name in the `href` above
-                label: "Enter the amount of SOL to send", // placeholder of the text input
+                name: "amount",
+                label: "Enter the amount of SOL to send",
                 required: true,
               },
             ],
@@ -83,8 +78,7 @@ export const GET = async (req: Request) => {
   }
 };
 
-// DO NOT FORGET TO INCLUDE THE `OPTIONS` HTTP METHOD
-// THIS WILL ENSURE CORS WORKS FOR BLINKS
+
 export const OPTIONS = async (req: Request) => {
   return new Response(null, { headers });
 };
@@ -96,7 +90,7 @@ export const POST = async (req: Request) => {
 
     const body: ActionPostRequest = await req.json();
 
-    // validate the client provided input
+
     let account: PublicKey;
     try {
       account = new PublicKey(body.account);
@@ -111,49 +105,34 @@ export const POST = async (req: Request) => {
       process.env.SOLANA_RPC! || clusterApiUrl("devnet"),
     );
 
-    // ensure the receiving account will be rent exempt
     const minimumBalance = await connection.getMinimumBalanceForRentExemption(
-      0, // note: simple accounts that just store native SOL have `0` bytes of data
+      0,
     );
     if (amount * LAMPORTS_PER_SOL < minimumBalance) {
       throw `account may not be rent exempt: ${toPubkey.toBase58()}`;
     }
 
-    // create an instruction to transfer native SOL from one wallet to another
     const transferSolInstruction = SystemProgram.transfer({
       fromPubkey: account,
       toPubkey: toPubkey,
       lamports: amount * LAMPORTS_PER_SOL,
     });
 
-    // get the latest blockhash amd block height
     const { blockhash, lastValidBlockHeight } =
       await connection.getLatestBlockhash();
 
-    // create a legacy transaction
     const transaction = new Transaction({
       feePayer: account,
       blockhash,
       lastValidBlockHeight,
     }).add(transferSolInstruction);
 
-    // versioned transactions are also supported
-    // const transaction = new VersionedTransaction(
-    //   new TransactionMessage({
-    //     payerKey: account,
-    //     recentBlockhash: blockhash,
-    //     instructions: [transferSolInstruction],
-    //   }).compileToV0Message(),
-    //   // note: you can also use `compileToLegacyMessage`
-    // );
 
     const payload: ActionPostResponse = await createPostResponse({
       fields: {
         transaction,
         message: `Send ${amount} SOL to ${toPubkey.toBase58()}`,
       },
-      // note: no additional signers are needed
-      // signers: [],
     });
 
     return Response.json(payload, {
